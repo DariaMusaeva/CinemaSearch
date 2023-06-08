@@ -5,7 +5,7 @@ public class MovieManager {
     private Movie[] movies = new Movie[0];
     private int defaultMovies = 5;
 
-    public void defaultMoviesChanger(int newDefaultMovies){
+    public void defaultMoviesChanger(int newDefaultMovies) {
         defaultMovies = newDefaultMovies;
     }
 
@@ -27,7 +27,7 @@ public class MovieManager {
         Movie[] tmp = new Movie[all.length];
         Movie[] result = new Movie[defaultMovies];
         for (int i = 0; i < all.length; i++) {
-           tmp[i] = all[all.length -1 -i];
+            tmp[i] = all[all.length - 1 - i];
         }
         for (int i = 0; i < defaultMovies; i++) {
             result[i] = tmp[i];

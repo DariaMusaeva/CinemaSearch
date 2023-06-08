@@ -12,7 +12,7 @@ public class MovieTest {
     Movie movie4 = new Movie(14, "Interstellar", 2014, "Fantastic");
     Movie movie5 = new Movie(6, "1+1", 2011, "Drama");
     Movie movie6 = new Movie(19, "Shrek", 2001, "Cartoon");
-    Movie movie7 = new Movie( 15, "Home Alone", 1990, "Comedy");
+    Movie movie7 = new Movie(15, "Home Alone", 1990, "Comedy");
 
     MovieManager mng = new MovieManager();
 
@@ -51,5 +51,14 @@ public class MovieTest {
         mng.defaultMoviesChanger(3);
 
         Assertions.assertArrayEquals(new Movie[]{movie7, movie6, movie5}, mng.findLast());
+    }
+
+    @Test
+    public void shouldAddNewMovie() {
+        Movie movie8 = new Movie(31, "Hereditary", 2018, "Horror");
+
+        mng.add(movie8);
+
+        Assertions.assertArrayEquals(new Movie[]{movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8}, mng.findAll());
     }
 }
