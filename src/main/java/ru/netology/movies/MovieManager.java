@@ -3,10 +3,14 @@ package ru.netology.movies;
 public class MovieManager {
 
     private Movie[] movies = new Movie[0];
-    private int defaultMovies = 5;
+    private int defaultMovies;
 
-    public void defaultMoviesChanger(int newDefaultMovies) {
-        defaultMovies = newDefaultMovies;
+    public MovieManager() {
+        this.defaultMovies = 5;
+    }
+
+    public MovieManager(int defaultMovies) {
+        this.defaultMovies = defaultMovies;
     }
 
     public void add(Movie newMovie) {
@@ -23,15 +27,16 @@ public class MovieManager {
     }
 
     public Movie[] findLast() {
-        Movie[] all = findAll();
-        Movie[] tmp = new Movie[all.length];
-        Movie[] result = new Movie[defaultMovies];
-        for (int i = 0; i < all.length; i++) {
-            tmp[i] = all[all.length - 1 - i];
+        int resultLength;
+        if (movies.length < defaultMovies) {
+            resultLength = movies.length;
+        } else {
+            resultLength = defaultMovies;
         }
-        for (int i = 0; i < defaultMovies; i++) {
-            result[i] = tmp[i];
+        Movie[] tmp = new Movie[resultLength];
+        for (int i = 0; i < tmp.length; i++) {
+            tmp[i] = movies[movies.length - 1 - i];
         }
-        return result;
+        return tmp;
     }
 }
